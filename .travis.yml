@@ -16,7 +16,8 @@ before_install:
   - gcloud container clusters get-credentials shopping-cluster
   
  
-
+script:
+  - docker run -e CI=true ubuntu
 
 deploy:
   provider: script
