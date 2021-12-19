@@ -1,0 +1,57 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: ecommerce-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      component: web
+  template:
+    metadata:
+      labels:
+        component: web
+    spec:
+      containers:
+       - name: django
+         image: us-central1-docker.pkg.dev/extended-cinema-334708/image-repo/shopping:v1
+         ports:
+          - containerPort: 9001
+         imagePullPolicy: Always
+         env:
+          - name: DJANGO_SUPERUSER_PASSWORD
+            value: ruckus
+          - name: DJANGO_SUPERUSER_EMAIL
+            value: bansalsahil227@gmail.com
+          - name: DJANGO_SUPERUSER_USERNAME
+            value: admin
+          - name: MYSQL_PASSWORD
+            value: password1
+          - name: MYSQL_DATABASES
+            value: ecommerce_database
+          - name: MYSQL_HOST
+            value: sql-cluster-ip-service
+      initContainers:
+       - name: init-django
+         image: us-central1-docker.pkg.dev/extended-cinema-334708/image-repo/shopping:v1
+         imagePullPolicy: Always
+         env:
+          - name: DJANGO_SUPERUSER_PASSWORD
+            value: ruckus
+          - name: DJANGO_SUPERUSER_EMAIL
+            value: bansalsahil227@gmail.com
+          - name: DJANGO_SUPERUSER_USERNAME
+            value: admin
+          - name: MYSQL_PASSWORD
+            value: password1
+          - name: MYSQL_DATABASES
+            value: ecommerce_database
+          - name: MYSQL_HOST
+            value: sql-cluster-ip-service
+         command:
+         - bash
+         - -c
+         - python3 manage.py makemigrations  &&
+           python3 manage.py migrate  
+          
+           

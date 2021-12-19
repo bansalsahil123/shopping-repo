@@ -1,0 +1,16 @@
+#! /bin/bash
+service mysql start
+mysql << EOF
+CREATE DATABASE IF NOT EXISTS ${MYSQL_DATABASES};
+CREATE USER IF NOT EXISTS 'local'@'localhost' IDENTIFIED BY ${MYSQL_PASSWORD};
+GRANT ALL PRIVILEGES ON *.* TO 'local'@'localhost' WITH GRANT OPTION;
+CREATE USER  IF NOT EXISTS 'local'@'%' IDENTIFIED BY ${MYSQL_PASSWORD};
+GRANT ALL PRIVILEGES ON *.* TO 'local'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, INDEX, DROP, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES ON ${MYSQL_DATABASES}.* TO 'local'@'localhost';
+
+exit
+EOF
+
+mysql -u local -ppassword1 ${MYSQL_DATABASES} < /var/lib/sql/dump.sql
+bash -c "tail -f /dev/null"

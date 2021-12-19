@@ -1,0 +1,37 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: sql-deployment
+spec:
+  replicas: 
+  selector:
+    matchLabels:
+      database: mysql
+  template:
+    metadata:
+      labels:
+        database: mysql
+    spec:
+      volumes:
+       - name: sql-volumes
+         persistentVolumeClaim:
+           claimName: database-persistent-volume-claim 
+      containers:
+       - name: db
+         image: us-central1-docker.pkg.dev/extended-cinema-334708/image-repo/shoppingdb:v1
+         ports:
+          - containerPort: 3306
+         imagePullPolicy: Always
+         volumeMounts:
+          - name: sql-volumes
+            mountPath: /var/lib/mysql/
+         env:
+          - name: MYSQL_PASSWORD
+            value: "'password1'"
+          - name: MYSQL_DATABASES
+            value: ecommerce_database
+          - name: MYSQL_ROOT_PASSWORD
+            value: password2
+
+          - name: MYSQl_COMMAND_PASSWORD
+            value:  password1
