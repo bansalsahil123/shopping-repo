@@ -12,5 +12,5 @@ GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, INDEX, DROP, ALTER, CREATE TEMPORA
 exit
 EOF
 
-mysql -u local -ppassword1 ${MYSQL_DATABASES} < /var/lib/sql/dump.sql
+
 bash -c "tail -f /dev/null"
