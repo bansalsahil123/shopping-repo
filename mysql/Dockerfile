@@ -3,6 +3,5 @@ WORKDIR /var/lib/sql
 COPY . .
 RUN chmod 777 sqlstart.sh
 RUN chmod 777 /var/lib/mysql
-RUN rm -r /var/lib/mysql/*
 EXPOSE 3306
 CMD ./sqlstart.sh
