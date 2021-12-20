@@ -16,7 +16,7 @@ spec:
        - name: sql-volumes
          persistentVolumeClaim:
            claimName: pvc-volumes
-       - name: sql-volumes2
+       - name: sql-volumes1
          persistentVolumeClaim:
            claimName: pvc-volumes
       
@@ -29,7 +29,7 @@ spec:
          volumeMounts:
           - name: sql-volumes
             mountPath: /var/lib/sql/
-          - name: sql-volumes2
+          - name: sql-volumes1
             mountPath: /var/lib/mysql/
             
          
