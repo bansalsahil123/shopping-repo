@@ -12,6 +12,10 @@ spec:
       labels:
         database: mysql
     spec:
+      volumes:
+       - name: sql-volumes
+         persistentVolumeClaim:
+           claimName: pvc-volumes
       
       containers:
        - name: db
@@ -19,6 +23,9 @@ spec:
          ports:
           - containerPort: 3306
          imagePullPolicy: Always
+         volumeMounts:
+          - name: sql-volumes
+            mountPath: /var/lib/mysql/
          
          env:
           - name: MYSQL_PASSWORD
