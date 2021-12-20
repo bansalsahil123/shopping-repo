@@ -1,4 +1,4 @@
-FROM mysql:5.7.22
+FROM mysql:5.6
 
 WORKDIR /var/lib/sql
 COPY . .
