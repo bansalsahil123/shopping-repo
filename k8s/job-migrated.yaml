@@ -8,6 +8,7 @@ spec:
       containers:
       - name: job-django
         image: us-central1-docker.pkg.dev/extended-cinema-334708/image-repo/shopping:v1
+        imagePullPolicy: Always
         env:
           - name: DJANGO_SUPERUSER_PASSWORD
             value: ruckus
