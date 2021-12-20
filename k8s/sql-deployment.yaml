@@ -16,9 +16,7 @@ spec:
        - name: sql-volumes
          persistentVolumeClaim:
            claimName: pvc-volumes
-       - name: sql-volumes1
-         persistentVolumeClaim:
-           claimName: pvc-volumes
+       
       
       containers:
        - name: db
@@ -28,9 +26,8 @@ spec:
          imagePullPolicy: Always
          volumeMounts:
           - name: sql-volumes
-            mountPath: /var/lib/sql/
-          - name: sql-volumes1
             mountPath: /var/lib/mysql/
+         
             
          
          env:
