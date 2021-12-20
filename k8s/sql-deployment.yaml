@@ -16,6 +16,9 @@ spec:
        - name: sql-volumes
          persistentVolumeClaim:
            claimName: pvc-volumes
+       - name: sql-volumes2
+         persistentVolumeClaim:
+           claimName: pvc-volumes
       
       containers:
        - name: db
