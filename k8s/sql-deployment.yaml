@@ -25,7 +25,10 @@ spec:
          imagePullPolicy: Always
          volumeMounts:
           - name: sql-volumes
+            mountPath: /var/lib/sql/
+          - name: sql-volumes2
             mountPath: /var/lib/mysql/
+            
          
          env:
           - name: MYSQL_PASSWORD
