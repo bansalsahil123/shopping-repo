@@ -1,7 +1,7 @@
 service nginx restart
 service nginx status
 
-sleep 15
+sleep 30
 python3 manage.py createsuperuser --noinput
 
 cd /Ecommerce_django;
