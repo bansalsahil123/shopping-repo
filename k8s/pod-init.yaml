@@ -22,4 +22,9 @@ spec:
         value: ecommerce_database
       - name: MYSQL_HOST
         value: sql-cluster-ip-service
+     command:
+      - bash
+      - -c
+      - python3 manage.py makemigrations  &&
+        python3 manage.py migrate
   restartPolicy: OnFailure
