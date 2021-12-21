@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: ecommerce-deployment
 spec:
-  replicas: 7
+  replicas: 8
   selector:
     matchLabels:
       component: web
@@ -31,6 +31,28 @@ spec:
             value: ecommerce_database
           - name: MYSQL_HOST
             value: sql-cluster-ip-service
+      initContainers:
+       - name: init-django
+         image: us-central1-docker.pkg.dev/extended-cinema-334708/image-repo/shopping:v1
+         imagePullPolicy: Always
+         env:
+          - name: DJANGO_SUPERUSER_PASSWORD
+            value: ruckus
+          - name: DJANGO_SUPERUSER_EMAIL
+            value: bansalsahil227@gmail.com
+          - name: DJANGO_SUPERUSER_USERNAME
+            value: admin
+          - name: MYSQL_PASSWORD
+            value: password1
+          - name: MYSQL_DATABASES
+            value: ecommerce_database
+          - name: MYSQL_HOST
+            value: sql-cluster-ip-service
+         command:
+         - bash
+         - -c
+         - python3 manage.py makemigrations  &&
+           python3 manage.py migrate 
  
           
            
