@@ -17,11 +17,6 @@ spec:
       labels:
         database: mysql
     spec:
-      volumes:
-       - name: sql-volumes
-         persistentVolumeClaim:
-           claimName: pvc-volumes
-       
       
       containers:
        - name: db
