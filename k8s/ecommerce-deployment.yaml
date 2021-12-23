@@ -30,12 +30,6 @@ spec:
             value: bansalsahil227@gmail.com
           - name: DJANGO_SUPERUSER_USERNAME
             value: admin
-          - name: MYSQL_PASSWORD
-            value: password1
-          - name: MYSQL_DATABASES
-            value: ecommerce_database
-          - name: MYSQL_HOST
-            value: sql-cluster-ip-service
           - name: PGUSER
             value: postgres
           - name: PGHOST
@@ -57,12 +51,6 @@ spec:
             value: bansalsahil227@gmail.com
           - name: DJANGO_SUPERUSER_USERNAME
             value: admin
-          - name: MYSQL_PASSWORD
-            value: password1
-          - name: MYSQL_DATABASES
-            value: ecommerce_database
-          - name: MYSQL_HOST
-            value: sql-cluster-ip-service
           - name: PGUSER
             value: postgres
           - name: PGHOST
