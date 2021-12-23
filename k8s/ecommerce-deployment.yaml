@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: ecommerce-deployment
 spec:
-  replicas: 8
+  replicas: 4
   strategy:
     type: RollingUpdate
     rollingUpdate:
