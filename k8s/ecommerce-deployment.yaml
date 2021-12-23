@@ -3,7 +3,12 @@ kind: Deployment
 metadata:
   name: ecommerce-deployment
 spec:
-  replicas: 7
+  replicas: 8
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 2        # how many pods we can add at a time
+      maxUnavailable: 0
   selector:
     matchLabels:
       component: web
