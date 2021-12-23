@@ -36,6 +36,16 @@ spec:
             value: ecommerce_database
           - name: MYSQL_HOST
             value: sql-cluster-ip-service
+          - name: PGUSER
+            value: postgres
+          - name: PGHOST
+            value: postgres-cluster-ip-service
+          - name: PGPORT
+            value: '5432'
+          - name: PGDATABASE
+            value: postgres
+          - name: PGPASSWORD
+            value: pgpassword123
       initContainers:
        - name: init-django
          image: us-central1-docker.pkg.dev/extended-cinema-334708/image-repo/shopping:v1
@@ -53,6 +63,16 @@ spec:
             value: ecommerce_database
           - name: MYSQL_HOST
             value: sql-cluster-ip-service
+          - name: PGUSER
+            value: postgres
+          - name: PGHOST
+            value: postgres-cluster-ip-service
+          - name: PGPORT
+            value: '5432'
+          - name: PGDATABASE
+            value: postgres
+          - name: PGPASSWORD
+            value: pgpassword123
          command:
          - bash
          - -c
