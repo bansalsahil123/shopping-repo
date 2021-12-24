@@ -4,7 +4,7 @@ metadata:
   name: database-pvc-volums
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 2Gi
