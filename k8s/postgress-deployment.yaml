@@ -3,6 +3,7 @@ kind: StatefulSet
 metadata:
   name: postgres-deployment
 spec:
+  serviceName: "postgres"
   replicas: 3
   selector:
     matchLabels:
