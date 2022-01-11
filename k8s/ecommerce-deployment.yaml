@@ -40,6 +40,9 @@ spec:
             value: postgres
           - name: PGPASSWORD
             value: pgpassword123
+         resources:
+          requests:
+            cpu: 10m
       initContainers:
        - name: init-django
          image: us-central1-docker.pkg.dev/extended-cinema-334708/image-repo/shopping:v1
