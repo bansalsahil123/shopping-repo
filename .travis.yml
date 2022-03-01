@@ -15,6 +15,7 @@ before_install:
   - gcloud config set compute/zone us-central1-a
   - gcloud container clusters get-credentials shoppings-cluster
   
+ 
 script:
   - docker run -e CI=true ubuntu
 
