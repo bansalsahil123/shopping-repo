@@ -16,6 +16,7 @@ before_install:
   - gcloud container clusters get-credentials shoppings-cluster
   
  
+ 
 script:
   - docker run -e CI=true ubuntu
 
