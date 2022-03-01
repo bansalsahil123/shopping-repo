@@ -6,11 +6,11 @@ env:
     - SHA=$(git rev-parse HEAD)
     - CLOUDSDK_CORE_DISABLE_PROMPTS=1
 before_install:
-  - openssl aes-256-cbc -K $encrypted_f56e711364cc_key -iv $encrypted_f56e711364cc_iv -in extended-cinema-334708-27bc23b30efe.json.enc -out extended-cinema-334708-27bc23b30efe.json -d
+  - openssl aes-256-cbc -K $encrypted_27750954fe07_key -iv $encrypted_27750954fe07_iv -in service-key.json.enc -out service-key.json -d
   - curl https://sdk.cloud.google.com | bash > /dev/null;
   - source $HOME/google-cloud-sdk/path.bash.inc
   - gcloud components update kubectl
-  - gcloud auth activate-service-account --key-file extended-cinema-334708-27bc23b30efe.json
+  - gcloud auth activate-service-account --key-file service-key.json
   - gcloud config set project extended-cinema-334708
   - gcloud config set compute/zone us-central1-a
   - gcloud container clusters get-credentials shoppings-cluster
