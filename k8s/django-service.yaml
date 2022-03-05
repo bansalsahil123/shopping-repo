@@ -8,6 +8,6 @@ spec:
   gateways:
    - nodejs-gateway
   http:
-   - route:
+  - route:
     - destination:
         host: ecommerce-cluster-ip
