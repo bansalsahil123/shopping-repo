@@ -18,7 +18,7 @@ spec:
        name: http
        protocol: HTTP
      hosts:
-      - "*"
+       - "*"
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
@@ -42,5 +42,9 @@ spec:
 #service
     - destination:
         host: ecommerce-cluster-ip
+
+
+
+
 
 
