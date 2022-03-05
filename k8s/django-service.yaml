@@ -1,0 +1,18 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: nodejs
+spec:
+  hosts:
+   - "*"
+#A gateways field that specifies the Gateway through which
+#external requests will be allowed.
+  gateways:
+   - nodejs-gateway
+  http:
+   - route:
+#A destination field that indicates where the request
+#will be routed. In this case, it will be routed to the nodejs
+#service
+    - destination:
+        host: ecommerce-cluster-ip
