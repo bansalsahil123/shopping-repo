@@ -8,7 +8,7 @@ spec:
     istio: ingressgateway
   servers:
   - port:
-      number: 15031
+      number: 80
       name: http-grafana
       protocol: HTTP
     hosts:
@@ -31,7 +31,7 @@ spec:
   http:
   - match:
     - uri:
-        prefix: "/"
+        prefix: 
     
     route:
     - destination:
