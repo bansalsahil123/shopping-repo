@@ -8,7 +8,7 @@ spec:
     istio: ingressgateway
   servers:
   - port:
-      number: 15021
+      number: 15031
       name: http-grafana
       protocol: HTTP
     hosts:
@@ -29,9 +29,7 @@ spec:
   gateways:
    - grafana-gateway
   http:
-  - match:
-    - port: 15021
-    route:
+  - route:
     - destination:
         host: grafana
         port:
