@@ -30,7 +30,9 @@ spec:
    - grafana-gateway
   http:
   - match:
-    - port: 15031
+    - uri:
+        prefix: "/"
+    
     route:
     - destination:
         host: grafana
