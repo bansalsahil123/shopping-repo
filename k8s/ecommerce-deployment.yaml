@@ -1,4 +1,4 @@
-apiVersion: apps/v1 
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ecommerce-deployment
@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
        - name: django
-         image: us-central1-docker.pkg.dev/extended-cinema-334708/image-repo/shopping:v1
+         image: us-central1-docker.pkg.dev/marine-set-350105/image-repo/shopping:v1
          ports:
           - containerPort: 9001
          imagePullPolicy: Always
@@ -45,7 +45,7 @@ spec:
             cpu: 10m
       initContainers:
        - name: init-django
-         image: us-central1-docker.pkg.dev/extended-cinema-334708/image-repo/shopping:v1
+         image: us-central1-docker.pkg.dev/marine-set-350105/image-repo/shopping:v1
          imagePullPolicy: Always
          env:
           - name: DJANGO_SUPERUSER_PASSWORD
@@ -68,7 +68,4 @@ spec:
          - bash
          - -c
          - python3 manage.py makemigrations  &&
-           python3 manage.py migrate 
- 
-          
-           
+           python3 manage.py migrate
