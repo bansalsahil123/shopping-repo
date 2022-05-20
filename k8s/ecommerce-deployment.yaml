@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployments
 metadata:
   name: ecommerce-deployment
 spec:
